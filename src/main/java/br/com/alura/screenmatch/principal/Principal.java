@@ -22,7 +22,7 @@ public class Principal {
     private final String ENDERECO = "https://www.omdbapi.com/?t=";
     private final String API_KEY = "&apikey=6585022c";
     private List<DadosSerie> dadosSeries = new ArrayList<>();
-    
+
     private SerieRepository repositorio;
 
     public Principal(SerieRepository repositorio) {
@@ -92,10 +92,7 @@ public class Principal {
     }
 
     private void listarSeriesBuscadas(){
-        List<Serie> series = new ArrayList<>();
-        series = dadosSeries.stream()
-                .map(d -> new Serie(d))
-                .collect(Collectors.toList());
+        List<Serie> series = repositorio.findAll();
         series.stream()
                 .sorted(Comparator.comparing(Serie::getGenero))
                 .forEach(System.out::println);

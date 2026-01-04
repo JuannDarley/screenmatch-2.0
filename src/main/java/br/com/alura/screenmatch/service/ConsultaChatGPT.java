@@ -8,7 +8,7 @@ public class ConsultaChatGPT {
 
     public static String obterTraducao(String texto) {
 
-        String apiKey = System.getenv("OPENAI_API_KEY");
+        String apiKey = System.getenv("OPENAI_APIKEY");
 
         // ✅ GUARDA DE SEGURANÇA (ESSENCIAL)
         if (apiKey == null || apiKey.isBlank()) {
